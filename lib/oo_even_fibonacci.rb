@@ -17,9 +17,7 @@ class EvenFibonacci
   end
 
   def sum
-    find_fibonacci_numbers.inject(0) do |sum, n|
-      n.even? ? sum + n : sum + 0
-    end
+    find_fibonacci_numbers.select{|n| n.even?}.inject(:+) 
   end
 
 end

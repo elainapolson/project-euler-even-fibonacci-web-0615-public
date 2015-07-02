@@ -7,7 +7,5 @@ def find_fibonacci_numbers(limit)
 end
 
 def even_fibonacci_sum(limit)
-  find_fibonacci_numbers(limit).inject(0) do |sum, n|
-    n.even? ? sum + n : sum + 0
-  end
+  find_fibonacci_numbers(limit).select{|n| n.even?}.inject(:+) 
 end
