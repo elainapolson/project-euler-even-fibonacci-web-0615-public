@@ -1,27 +1,25 @@
-# Implement your object-oriented solution here!
-
 class EvenFibonacci
 
   def initialize(limit)
     @limit = limit
+    @array = [1,2]
+  end
+
+  def add_terms
+    @array[-1] + @array[-2]
   end
 
   def find_fibonacci_numbers
-    #make all the numbers an array
-    array = [1, 2]
-    while (array[-1] + array[-2]) < @limit
-      array << array[-1] + array[-2]
+    while add_terms < @limit
+      @array << add_terms
     end
-    array
+    @array
   end
 
   def sum
-    numbers = find_fibonacci_numbers
-    sum = 0
-    numbers.each do |n|
-      n.even? ? sum += n : sum += 0
+    find_fibonacci_numbers.inject(0) do |sum, n|
+      n.even? ? sum + n : sum + 0
     end
-    sum
   end
 
 end
